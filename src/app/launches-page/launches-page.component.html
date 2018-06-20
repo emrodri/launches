@@ -1,0 +1,5 @@
+<div class="launches-container">
+  <h3>Launches</h3>
+  <app-launches-search (search)="onSearch($event)"></app-launches-search>
+  <app-launches-list [launches]="filteredLaunches"></app-launches-list>
+</div>

@@ -1,0 +1,31 @@
+<div class="filters">
+  <div>
+    Busqueda:<input #searchText
+              name="textSearch"
+              type="text"
+              placeholder="Introduzca texto a buscar"
+              (keyup)="onSearch()">
+  </div>
+  <div>
+    Estado:
+    <select #selectStatus class="select" (change)="onSearch()">
+      <option value=""> Sin Seleccionar</option>
+      <option [value]="status.id" *ngFor="let status of statuses"> {{status.name}}</option>
+    </select>
+  </div>
+  <div>
+    Agencia:
+    <select #selectAgency class="select" (change)="onSearch()">
+      <option value=""> Sin Seleccionar</option>
+      <option [value]="agency.id" *ngFor="let agency of agencies"> {{agency.name}}</option>
+    </select>
+  </div>
+  <div>
+    Tipo de misión:
+    <select #selectMission class="select" (change)="onSearch()">
+      <option value=""> Sin Seleccionar</option>
+      <option [value]="mission.id" *ngFor="let mission of missions"> {{mission.name}}</option>
+    </select>
+  </div>
+
+</div>

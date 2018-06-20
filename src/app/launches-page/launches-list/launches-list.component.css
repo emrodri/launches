@@ -1,0 +1,12 @@
+.launches {
+  border: 1px solid #ccc;
+  border-top: 0;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  padding-bottom: 20px;
+  overflow: hidden;
+}
+.launch{
+  padding: 8px 16px;
+  border-top: 1px solid #ccc;
+}

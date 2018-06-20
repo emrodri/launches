@@ -1,0 +1,6 @@
+<div *ngIf="launchesLoaded$ | async; else loading">
+ <app-launches-page></app-launches-page>
+</div>
+<ng-template #loading>
+  <div class="loading">Cargando...</div>
+</ng-template>
