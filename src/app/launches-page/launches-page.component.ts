@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {LaunchesService} from '../services/launches.service';
+import {Slice, Store} from '../store/store.state';
 
 @Component({
   selector: 'app-launches-page',
@@ -7,17 +7,22 @@ import {LaunchesService} from '../services/launches.service';
   styleUrls: ['./launches-page.component.css']
 })
 export class LaunchesPageComponent implements OnInit {
-  filteredLaunches: any[] = [];
+  filteredLaunches;
+  launches;
 
-  constructor(private _launches: LaunchesService) {
+  constructor(private store: Store) {
   }
 
   ngOnInit() {
-    this.filteredLaunches = this._launches.launches;
+    this.launches = this.filteredLaunches = this.store.selectSnapShot(Slice.launches);
+    this.store.select$(Slice.launches)
+      .subscribe(launches => {
+        this.launches = launches;
+      });
   }
 
   onSearch(searchValues) {
-    this.filteredLaunches = this._launches.launches.filter(
+    this.filteredLaunches = this.launches.filter(
       l => {
         return (
           l.name.toLowerCase().includes(searchValues.text.toLowerCase()) &&

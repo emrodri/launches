@@ -1,5 +1,5 @@
 import {ChangeDetectionStrategy, Component, ElementRef, EventEmitter, OnInit, Output, ViewChild} from '@angular/core';
-import {LaunchesService} from '../../services/launches.service';
+import {Slice, Store} from '../../store/store.state';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -16,13 +16,14 @@ export class LaunchesSearchComponent implements OnInit {
   missions: any[];
   statuses: any[];
   agencies: any[];
-  constructor(private _launches: LaunchesService) {
+
+  constructor(private store: Store) {
   }
 
   ngOnInit() {
-    this.missions = this._launches.launchMissions;
-    this.statuses = this._launches.launchStatuses;
-    this.agencies = this._launches.launchAgencies;
+    this.store.select$(Slice.missionTypes).subscribe(missionTypes => this.missions = missionTypes);
+    this.store.select$(Slice.launchStatuses).subscribe(statuses => this.statuses = statuses);
+    this.store.select$(Slice.agencies).subscribe(agencies => this.agencies = agencies);
   }
 
   onSearch = () => {
@@ -33,6 +34,6 @@ export class LaunchesSearchComponent implements OnInit {
       status: this.selectStatus.nativeElement.value,
     };
     this.search.next(searchValues);
-  }
+  };
 
 }
