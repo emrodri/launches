@@ -26,22 +26,26 @@ export class LaunchesPageComponent implements OnInit {
       l => {
         return (
           l.name.toLowerCase().includes(searchValues.text.toLowerCase()) &&
-          (searchValues.mission === '' || this.checkMissionOnLaunch(l, searchValues.mission).length) &&
-          (searchValues.agency === '' || this.checkAgenciesOnLaunch(l, searchValues.agency).length) &&
+          (searchValues.mission === '' || this.checkMissionOnLaunch(l, searchValues.mission)) &&
+          (searchValues.agency === '' || this.checkAgenciesOnLaunch(l, searchValues.agency)) &&
           (searchValues.status === '' || l.status === Number(searchValues.status))
         );
       });
   }
 
   checkMissionOnLaunch(launch, missionId) {
-    return launch.missions.filter(m => m.type === Number(missionId));
+    return launch.missions.filter(m => m.type === Number(missionId)).length > 0;
   }
 
   checkAgenciesOnLaunch(launch, agencyId) {
-    const checkOnMissions =  launch.missions.filter(m => {
-      return (m.agencies && m.agencies.filter(a => a.id === Number(agencyId)).length);
-    });
-    const checkOnRocket = (launch.rocket && launch.rocket.agencies && launch.rocket.agencies.filter(a => a.id === Number(agencyId)).length);
+    const checkOnMissions = launch.missions.filter(m => {
+      return (m.agencies && m.agencies.filter(a => a.id === Number(agencyId)).length > 0);
+    }).length > 0;
+    const checkOnRocket = (
+      launch.rocket &&
+      launch.rocket.agencies &&
+      launch.rocket.agencies.filter(a => a.id === Number(agencyId)).length > 0
+    ) || 0;
     return checkOnMissions || checkOnRocket;
   }
 

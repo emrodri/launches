@@ -18,7 +18,7 @@ export class LaunchesListComponent implements OnInit {
 
   }
 
-  getLaunchStatusFromId(status: number){
+  getLaunchStatusFromId(status: number) {
     return (this.store.selectSnapShot(Slice.launchStatuses) as LaunchStatus[]).find(s => s.id === status);
   }
 }

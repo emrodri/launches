@@ -10,13 +10,13 @@
           {{mission.typeName}}
         </div>
       </div>
-      <div>
+      <div class="agency">
         <div class="header">Agencias</div>
         <ng-container *ngFor="let mission of launch.missions">
-          <div *ngFor="let agency of mission.agencies">{{agency.name}}</div>
+          <div *ngFor="let agency of mission.agencies">(Mision) {{agency.name}} </div>
         </ng-container>
         <div *ngFor="let agency of launch.rocket.agencies">
-          {{agency.name}}
+          (Rocket) {{agency.name}}
         </div>
       </div>
       <div>

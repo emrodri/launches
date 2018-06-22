@@ -26,3 +26,8 @@
   display: flex;
   flex-direction: column;
 }
+
+.agency{
+  flex: 1 1 auto;
+  padding: 0 8px;
+}
