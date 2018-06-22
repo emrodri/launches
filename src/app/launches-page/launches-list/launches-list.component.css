@@ -10,3 +10,19 @@
   padding: 8px 16px;
   border-top: 1px solid #ccc;
 }
+
+.more-info{
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+
+}
+
+.more-info .header{
+  font-weight: bold;
+  color: dodgerblue;
+}
+.more-info>div{
+  display: flex;
+  flex-direction: column;
+}

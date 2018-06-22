@@ -1,4 +1,6 @@
 import {ChangeDetectionStrategy, Component, Input, OnInit} from '@angular/core';
+import {Slice, Store} from '../../store/store.state';
+import {LaunchStatus} from '../../store/models/launch-status.model';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -7,9 +9,16 @@ import {ChangeDetectionStrategy, Component, Input, OnInit} from '@angular/core';
   styleUrls: ['./launches-list.component.css']
 })
 export class LaunchesListComponent implements OnInit {
-  @Input('launches') launches: any[];
-  constructor() {}
+  @Input('launches') launches;
 
-  ngOnInit() {}
+  constructor(private store: Store) {
+  }
 
+  ngOnInit() {
+
+  }
+
+  getLaunchStatusFromId(status: number){
+    return (this.store.selectSnapShot(Slice.launchStatuses) as LaunchStatus[]).find(s => s.id === status);
+  }
 }

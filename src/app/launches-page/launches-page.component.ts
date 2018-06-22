@@ -38,9 +38,11 @@ export class LaunchesPageComponent implements OnInit {
   }
 
   checkAgenciesOnLaunch(launch, agencyId) {
-    return launch.missions.filter(m => {
+    const checkOnMissions =  launch.missions.filter(m => {
       return (m.agencies && m.agencies.filter(a => a.id === Number(agencyId)).length);
     });
+    const checkOnRocket = (launch.rocket && launch.rocket.agencies && launch.rocket.agencies.filter(a => a.id === Number(agencyId)).length);
+    return checkOnMissions || checkOnRocket;
   }
 
 }

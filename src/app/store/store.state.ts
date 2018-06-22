@@ -3,10 +3,6 @@ import {initialState, State} from './models/state.modal';
 import {BehaviorSubject} from 'rxjs';
 import {Actions, ActionTypes} from './store.actions';
 import {storeReducer} from './store.reducer';
-import {Launch} from './models/launch.model';
-import {LaunchStatus} from './models/launch-status.model';
-import {MissionType} from './models/mission-type.model';
-import {Agency} from './models/agency.model';
 
 @Injectable({
   providedIn: 'root'

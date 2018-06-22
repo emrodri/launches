@@ -10,7 +10,7 @@ export interface Launch {
   name: string;
   status: number;
   changed: Date;
-  rocket: Rocket[];
+  rocket: Rocket;
   missions: Mission[];
 }
 export const launchesInitialState: Launch[] = [];
