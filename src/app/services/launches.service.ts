@@ -27,7 +27,6 @@ export class LaunchesService {
         tap(launches => {
           this.store.dispatch(new LoadLaunches(launches));
           this.launchesLoaded = true;
-          this.checkLoaded();
         })
       );
   };
@@ -40,7 +39,6 @@ export class LaunchesService {
         tap(res => {
           this.store.dispatch(new LoadLaunchStatuses(res));
           this.launchStatusesLoaded = true;
-          this.checkLoaded();
         })
       );
   };
@@ -53,7 +51,6 @@ export class LaunchesService {
         tap(res => {
           this.store.dispatch(new LoadMissionTypes(res));
           this.missionTypesLoaded = true;
-          this.checkLoaded();
         })
       );
   };
@@ -66,7 +63,6 @@ export class LaunchesService {
         tap(res => {
           this.store.dispatch(new LoadAgencies(res));
           this.agenciesLoaded = true;
-          this.checkLoaded();
         })
       );
   };
