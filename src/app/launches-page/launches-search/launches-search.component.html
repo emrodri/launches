@@ -10,21 +10,21 @@
     Estado:
     <select #selectStatus class="select" (change)="onSearch()">
       <option value=""> Sin Seleccionar</option>
-      <option [value]="status.id" *ngFor="let status of statuses"> {{status.name}}</option>
+      <option [value]="status.id" *ngFor="let status of statuses$ | async"> {{status.name}}</option>
     </select>
   </div>
   <div>
     Agencia:
     <select #selectAgency class="select" (change)="onSearch()">
       <option value=""> Sin Seleccionar</option>
-      <option [value]="agency.id" *ngFor="let agency of agencies"> {{agency.name}}</option>
+      <option [value]="agency.id" *ngFor="let agency of agencies$ | async"> {{agency.name}}</option>
     </select>
   </div>
   <div>
     Tipo de misión:
     <select #selectMission class="select" (change)="onSearch()">
       <option value=""> Sin Seleccionar</option>
-      <option [value]="mission.id" *ngFor="let mission of missions"> {{mission.name}}</option>
+      <option [value]="mission.id" *ngFor="let mission of missions$ | async"> {{mission.name}}</option>
     </select>
   </div>
 

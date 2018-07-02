@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {State} from '../store';
 import {Store} from '@ngrx/store';
+import {ApiService} from '../store/api.service';
 
 @Component({
   selector: 'app-launches-page',
@@ -10,8 +11,9 @@ import {Store} from '@ngrx/store';
 export class LaunchesPageComponent implements OnInit {
   filteredLaunches;
   launches;
+  search$ = this.api.search$;
 
-  constructor(private store: Store<State>) {
+  constructor(private store: Store<State>, private api: ApiService) {
   }
 
   ngOnInit() {
@@ -19,18 +21,21 @@ export class LaunchesPageComponent implements OnInit {
       .subscribe(launchesState => {
         this.launches = this.filteredLaunches = launchesState.launches;
       });
+    this.search$.subscribe(search => this.onSearch(search));
   }
 
   onSearch(searchValues) {
-    this.filteredLaunches = this.launches.filter(
-      l => {
-        return (
-          l.name.toLowerCase().includes(searchValues.text.toLowerCase()) &&
-          (searchValues.mission === '' || this.checkMissionOnLaunch(l, searchValues.mission)) &&
-          (searchValues.agency === '' || this.checkAgenciesOnLaunch(l, searchValues.agency)) &&
-          (searchValues.status === '' || l.status === Number(searchValues.status))
-        );
-      });
+    if (searchValues) {
+      this.filteredLaunches = this.launches.filter(
+        l => {
+          return (
+            l.name.toLowerCase().includes(searchValues.text.toLowerCase()) &&
+            (searchValues.mission === '' || this.checkMissionOnLaunch(l, searchValues.mission)) &&
+            (searchValues.agency === '' || this.checkAgenciesOnLaunch(l, searchValues.agency)) &&
+            (searchValues.status === '' || l.status === Number(searchValues.status))
+          );
+        });
+    }
   }
 
   checkMissionOnLaunch(launch, missionId) {

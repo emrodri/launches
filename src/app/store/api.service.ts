@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {map, tap} from 'rxjs/operators';
-import {BehaviorSubject, Observable} from 'rxjs';
+import {BehaviorSubject, Observable, Subject} from 'rxjs';
 import {LoadLaunches} from './launch/launch.actions';
 import {State} from './index';
 import {Store} from '@ngrx/store';
@@ -15,6 +15,7 @@ import {LoadStatuses} from './status/status.actions';
 export class ApiService {
 
   initialDataLoaded = new BehaviorSubject<boolean>(false);
+  search$ = new BehaviorSubject<any>(null);
   private entitiesLoaded = [];
 
   constructor(private http: HttpClient, private store: Store<State>) {
@@ -82,5 +83,9 @@ export class ApiService {
       this.entitiesLoaded[path] = (!state.loading && (state[path].length > 0));
       this.checkInitialDataLoaded();
     });
+  }
+
+  public searchLaunches(searchValues) {
+    this.search$.next(searchValues);
   }
 }
