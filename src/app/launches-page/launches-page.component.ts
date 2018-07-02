@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {Slice, Store} from '../store/store.state';
+import {State} from '../store';
+import {Store} from '@ngrx/store';
 
 @Component({
   selector: 'app-launches-page',
@@ -10,14 +11,13 @@ export class LaunchesPageComponent implements OnInit {
   filteredLaunches;
   launches;
 
-  constructor(private store: Store) {
+  constructor(private store: Store<State>) {
   }
 
   ngOnInit() {
-    this.launches = this.filteredLaunches = this.store.selectSnapShot(Slice.launches);
-    this.store.select$(Slice.launches)
-      .subscribe(launches => {
-        this.launches = launches;
+    this.store.select('launches')
+      .subscribe(launchesState => {
+        this.launches = this.filteredLaunches = launchesState.launches;
       });
   }
 

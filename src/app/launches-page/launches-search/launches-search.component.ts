@@ -1,5 +1,6 @@
 import {ChangeDetectionStrategy, Component, ElementRef, EventEmitter, OnInit, Output, ViewChild} from '@angular/core';
-import {Slice, Store} from '../../store/store.state';
+import {Store} from '@ngrx/store';
+import {State} from '../../store';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -17,13 +18,13 @@ export class LaunchesSearchComponent implements OnInit {
   statuses: any[];
   agencies: any[];
 
-  constructor(private store: Store) {
+  constructor(private store: Store<State>) {
   }
 
   ngOnInit() {
-    this.store.select$(Slice.missionTypes).subscribe(missionTypes => this.missions = missionTypes);
-    this.store.select$(Slice.launchStatuses).subscribe(statuses => this.statuses = statuses);
-    this.store.select$(Slice.agencies).subscribe(agencies => this.agencies = agencies);
+    this.store.select('missionTypes').subscribe(missionTypesState => this.missions = missionTypesState.missionTypes);
+    this.store.select('statuses').subscribe(statusesState => this.statuses = statusesState.statuses);
+    this.store.select('agencies').subscribe(agenciesState => this.agencies = agenciesState.agencies);
   }
 
   onSearch = () => {

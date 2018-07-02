@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {LaunchesService} from '../services/launches.service';
+import {ApiService} from '../store/api.service';
 import {Observable} from 'rxjs';
 
 @Component({
@@ -11,7 +11,7 @@ export class MainComponent implements OnInit {
 
   launchesLoaded$: Observable<boolean> = this._launches.initialDataLoaded;
 
-  constructor(private _launches: LaunchesService) {
+  constructor(private _launches: ApiService) {
     this._launches.loadInitialData();
   }
 

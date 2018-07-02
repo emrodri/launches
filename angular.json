@@ -123,5 +123,8 @@
       }
     }
   },
-  "defaultProject": "dapp-delivery1"
+  "defaultProject": "dapp-delivery1",
+  "cli": {
+    "defaultCollection": "@ngrx/schematics"
+  }
 }
