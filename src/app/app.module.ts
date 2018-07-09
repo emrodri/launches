@@ -13,11 +13,13 @@ import {StoreModule} from '@ngrx/store';
 import {reducers, metaReducers} from './store';
 import {StoreDevtoolsModule} from '@ngrx/store-devtools';
 import {environment} from '../environments/environment';
-import { EffectsModule } from '@ngrx/effects';
-import { LaunchEffects } from './store/launch/launch.effects';
-import { AgencyEffects } from './store/agency/agency.effects';
-import { StatusEffects } from './store/status/status.effects';
-import { MissionTypeEffects } from './store/mission-type/mission-type.effects';
+import {EffectsModule} from '@ngrx/effects';
+import {LaunchEffects} from './store/launch/launch.effects';
+import {AgencyEffects} from './store/agency/agency.effects';
+import {StatusEffects} from './store/status/status.effects';
+import {MissionTypeEffects} from './store/mission-type/mission-type.effects';
+import {ServiceWorkerModule} from '@angular/service-worker';
+import {UiEffects} from './store/ui/ui.effects';
 
 @NgModule({
   declarations: [
@@ -34,7 +36,8 @@ import { MissionTypeEffects } from './store/mission-type/mission-type.effects';
     ReactiveFormsModule,
     StoreModule.forRoot(reducers, {metaReducers}),
     !environment.production ? StoreDevtoolsModule.instrument() : [],
-    EffectsModule.forRoot([LaunchEffects, AgencyEffects, StatusEffects, MissionTypeEffects])
+    EffectsModule.forRoot([LaunchEffects, AgencyEffects, StatusEffects, MissionTypeEffects, UiEffects]),
+    ServiceWorkerModule.register('/ngsw-worker.js', {enabled: environment.production})
   ],
   providers: [],
   bootstrap: [AppComponent]

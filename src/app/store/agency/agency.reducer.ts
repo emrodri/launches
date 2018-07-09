@@ -22,5 +22,4 @@ export function reducer(
       return {loading: false, agencies: action.payload};
     default:
       return state;
-  }
-}
+  }}

@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {State} from '../store';
 import {Store} from '@ngrx/store';
 import {ApiService} from '../store/api.service';
+import {map} from 'rxjs/operators';
+import {UpdateVersion} from '../store/ui/ui.actions';
 
 @Component({
   selector: 'app-launches-page',
@@ -12,6 +14,7 @@ export class LaunchesPageComponent implements OnInit {
   filteredLaunches;
   launches;
   search$ = this.api.search$;
+  newVersion$ = this.store.select('ui').pipe(map(uiState => uiState.newVersion));
 
   constructor(private store: Store<State>, private api: ApiService) {
   }
@@ -52,6 +55,10 @@ export class LaunchesPageComponent implements OnInit {
       launch.rocket.agencies.filter(a => a.id === Number(agencyId)).length > 0
     ) || 0;
     return checkOnMissions || checkOnRocket;
+  }
+
+  updateVersion() {
+    this.store.dispatch(new UpdateVersion());
   }
 
 }

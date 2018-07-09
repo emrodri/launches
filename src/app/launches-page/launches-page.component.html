@@ -1,5 +1,9 @@
 <div class="launches-container">
-  <h3>Launches</h3>
+  <div class="title-bar">
+    <h3>Launches</h3>
+    <span class="separator"></span>
+    <div class="new-version" *ngIf="newVersion$ | async">Existe una nueva versión de la aplicación <button (click)="updateVersion()"> <i class="fas fa-sync-alt"></i> Actualizar</button></div>
+  </div>
   <app-launches-search></app-launches-search>
   <app-launches-list [launches]="filteredLaunches"></app-launches-list>
 </div>

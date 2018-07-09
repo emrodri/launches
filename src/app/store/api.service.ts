@@ -8,13 +8,12 @@ import {Store} from '@ngrx/store';
 import {LoadAgencies} from './agency/agency.actions';
 import {LoadMissionTypes} from './mission-type/mission-type.actions';
 import {LoadStatuses} from './status/status.actions';
+import {FinishedLoading, InitLoading} from './ui/ui.actions';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ApiService {
-
-  initialDataLoaded = new BehaviorSubject<boolean>(false);
   search$ = new BehaviorSubject<any>(null);
   private entitiesLoaded = [];
 
@@ -60,13 +59,12 @@ export class ApiService {
       this.entitiesLoaded['missionTypes'] &&
       this.entitiesLoaded['statuses']
     ) {
-      this.initialDataLoaded.next(true);
-    } else {
-      this.initialDataLoaded.next(false);
+      this.store.dispatch(new FinishedLoading);
     }
   }
 
   loadInitialData() {
+    this.store.dispatch(new InitLoading());
     this.store.dispatch(new LoadLaunches());
     this.checkIfLoaded('launches');
     this.store.dispatch(new LoadAgencies());

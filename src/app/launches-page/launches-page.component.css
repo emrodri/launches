@@ -1,0 +1,36 @@
+.title-bar {
+  height: 56px;
+  color: white;
+  background-color: dodgerblue;
+  display: flex;
+  align-items: center;
+  padding: 0 8px;
+  border-bottom: 1px solid #64b5f6;
+}
+
+.title-bar h3 {
+  margin: 0;
+  padding: 0;
+}
+
+.title-bar .separator{
+  flex: 1 1 auto;
+}
+
+.title-bar button{
+  background-color: #E7E7E7;
+  color: dodgerblue;
+  border: 0;
+  padding: 8px;
+  border-radius: 3px;
+  font-weight: bold;
+}
+.new-version{
+  font-size: 12px;
+}
+
+app-launches-search{
+  display: flex;
+  position: sticky;
+  top: 0;
+}

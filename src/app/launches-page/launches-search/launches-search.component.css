@@ -13,8 +13,6 @@
   background: dodgerblue;
   color: white;
   display: flex;
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
 }
 .filters>div{
   flex: 1 1 auto;

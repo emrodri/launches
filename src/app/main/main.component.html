@@ -1,7 +1,11 @@
-
-<div *ngIf="launchesLoaded$ | async; else loading">
+<div *ngIf="!(dataLoading$ | async); else loading">
  <app-launches-page></app-launches-page>
 </div>
 <ng-template #loading>
-  <div class="loading">Cargando...</div>
+  <div class="loading">
+    <div class="fa-3x">
+      <i class="fas fa-spinner fa-spin"></i>
+    </div>
+    Cargando...
+  </div>
 </ng-template>
