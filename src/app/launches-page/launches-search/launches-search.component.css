@@ -13,6 +13,7 @@
   background: dodgerblue;
   color: white;
   display: flex;
+  flex: 1 1 auto;
 }
 .filters>div{
   flex: 1 1 auto;

@@ -14,7 +14,7 @@ import {NewVersionAvailable, UiActionTypes} from '../store/ui/ui.actions';
   styleUrls: ['./main.component.css']
 })
 export class MainComponent implements OnInit {
-
+  version: String;
   dataLoading$: Observable<boolean> = this.store.select('ui').pipe(map(ui => ui.loading));
 
   constructor(private _launches: ApiService,
@@ -23,6 +23,7 @@ export class MainComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.version = '1';
     this._launches.loadInitialData();
     if (this.swUpdate.isEnabled) {
       this.swUpdate.available.subscribe((event: UpdateAvailableEvent) => {
