@@ -4,7 +4,7 @@ import {Observable} from 'rxjs';
 import {SwUpdate} from '@angular/service-worker';
 import {UpdateAvailableEvent} from '@angular/service-worker/src/low_level';
 import {State} from '../store';
-import {ActionsSubject, Store} from '@ngrx/store';
+import {Store} from '@ngrx/store';
 import {map} from 'rxjs/operators';
 import {NewVersionAvailable, UiActionTypes} from '../store/ui/ui.actions';
 

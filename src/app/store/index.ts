@@ -1,6 +1,6 @@
 import {
   ActionReducerMap,
-  MetaReducer
+  MetaReducer, StoreModule
 } from '@ngrx/store';
 import { environment } from '../../environments/environment';
 import * as fromLaunch from './launch/launch.reducer';
@@ -23,7 +23,7 @@ export const reducers: ActionReducerMap<State> = {
   agencies: fromAgency.reducer,
   statuses: fromStatus.reducer,
   missionTypes: fromMissionType.reducer,
-  ui: fromUi.reducer,
+  ui: fromUi.reducer
 };
 
 
