@@ -1,6 +1,5 @@
 import {Mission} from './mission.model';
 import {Rocket} from './rocket.model';
-import {Agency} from './agency.model';
 
 /**
  * Hemos simplificado el modelo ya que era bastante extenso para utilizar solo los campos que utilizamos
@@ -14,6 +13,15 @@ export interface Launch {
   missions: Mission[];
   isostart: Date;
   isoend: Date;
+  net: Date;
+  location: Location;
+}
+
+export interface Location {
+  id: number;
+  name: string;
+  infoURL: string;
+  wikiURL: string;
 }
 export const launchesInitialState: Launch[] = [];
 

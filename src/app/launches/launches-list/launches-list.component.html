@@ -1,0 +1,6 @@
+<div class="launches" *ngIf="launches.length>0; else nolaunches">
+  <app-launch-item *ngFor="let launch of launches" [launch]="launch"></app-launch-item>
+</div>
+<ng-template #nolaunches>
+  <div class="no-launches">No se han encontrado lanzamientos en este estado</div>
+</ng-template>

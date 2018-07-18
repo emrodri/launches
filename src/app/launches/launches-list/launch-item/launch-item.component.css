@@ -1,8 +1,3 @@
-.launches {
-  border-top: 0;
-  padding-bottom: 20px;
-  overflow: hidden;
-}
 .launch{
   padding: 8px 16px;
   border-top: 1px solid #ccc;
@@ -42,12 +37,4 @@
 }
 .launch-name .fa{
   color: #0D47A1;
-}
-
-.no-launches{
-  padding: 20px 16px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
 }

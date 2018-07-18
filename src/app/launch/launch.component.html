@@ -1,0 +1,25 @@
+<app-launch-bar [launch]="launch"></app-launch-bar>
+<div class="launch">
+
+  <div class="description">
+    <div class="section-title">Situación</div>
+    <div><label>Ubicación:</label> {{ launch.location.name }}</div>
+    <div><label>Hora:</label> {{ launch.net }}</div>
+    <div class="section-title">Cohete</div>
+    <div><label>Nombre:</label> {{launch.rocket.name}}</div>
+    <div><label>Configuración:</label> {{launch.rocket.configuration}} <label>Familia:</label>
+      {{launch.rocket.familyname}}
+    </div>
+    <div class="section-title subsection" *ngIf="launch.rocket.agencies.length">Agencias</div>
+    <div class="agency" *ngFor="let agency of launch.rocket.agencies"><label>Agencia: </label>{{agency.name}}</div>
+    <div class="section-title" *ngIf="launch.missions.length">Misiones</div>
+    <div *ngFor="let mission of launch.missions" class="mission">
+      <div><label>Nombre: </label>{{mission.name}}</div>
+      <div><label>Tipo: </label>{{mission.typeName}}</div>
+      <div><label>Descripcion: </label>{{mission.description}}</div>
+      <div class="section-title subsection" *ngIf="launch.rocket.agencies.length">Agencias</div>
+      <div class="agency" *ngFor="let agency of mission.agencies"><label>Agencia: </label>{{agency.name}}</div>
+    </div>
+  </div>
+  <img [src]="launch.rocket.imageURL" class="launch-image">
+</div>

@@ -1,0 +1,22 @@
+<div class="launch" routerLink="../launch/{{launch.id}}">
+  <div class="launch-name"><i class="fa fa-rocket"></i> {{launch.name}}</div>
+  <div class="lauch-time">From {{launch.isostart |date : 'medium'}} to {{launch.isoend | date : 'medium'}}</div>
+  <div class="more-info">
+    <div class="mission-type">
+      <div class="header">Tipos de mision</div>
+      <div *ngIf="launch.missions.length==0">Sin Misiones</div>
+      <div *ngFor="let mission of launch.missions">
+        {{mission.typeName}}
+      </div>
+    </div>
+    <div class="agency">
+      <div class="header">Agencias</div>
+      <ng-container *ngFor="let mission of launch.missions">
+        <div *ngFor="let agency of mission.agencies">(Mision) {{agency.name}} </div>
+      </ng-container>
+      <div *ngFor="let agency of launch.rocket.agencies">
+        (Rocket) {{agency.name}}
+      </div>
+    </div>
+  </div>
+</div>
