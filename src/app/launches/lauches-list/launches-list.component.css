@@ -1,5 +1,4 @@
 .launches {
-  border: 1px solid #ccc;
   border-top: 0;
   padding-bottom: 20px;
   overflow: hidden;
@@ -23,9 +22,32 @@
 .more-info>div{
   display: flex;
   flex-direction: column;
+  flex: 50;
 }
 
 .agency{
   flex: 1 1 auto;
   padding: 0 8px;
+}
+
+.lauch-time{
+  font-size: 0.7em;
+  font-weight: 600;
+  color: #FF5722;
+}
+
+.launch-name{
+  font-weight: 600;
+  font-size: 0.9em;
+}
+.launch-name .fa{
+  color: #0D47A1;
+}
+
+.no-launches{
+  padding: 20px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }

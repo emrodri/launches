@@ -1,5 +1,6 @@
 <div *ngIf="!(dataLoading$ | async); else loading">
- <app-launches-page></app-launches-page>
+  <app-title-bar></app-title-bar>
+  <router-outlet></router-outlet>
 </div>
 <ng-template #loading>
   <div class="loading">

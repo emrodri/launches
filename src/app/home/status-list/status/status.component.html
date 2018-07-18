@@ -1,0 +1,9 @@
+<div class="status" routerLink="/launches/{{status.id}}">
+  <div class="status-name">
+    <span class="color-indicator {{status.color}}"></span>
+    <span>{{status.name}}</span>
+    <span class="separator"></span>
+    <span class="updated">{{status.changed | date:"medium"}}</span>
+  </div>
+  <div class="status-description">{{status.description}}</div>
+</div>

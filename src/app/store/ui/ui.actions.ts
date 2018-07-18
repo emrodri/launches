@@ -4,7 +4,8 @@ export enum UiActionTypes {
   InitLoading = '[UI] Init Loading',
   FinishedLoading = '[UI] Finished Loading',
   NewVersionAvailable = '[UI] New Version',
-  UpdateVersion = '[UI] Update Version'
+  UpdateVersion = '[UI] Update Version',
+  ChangeTitle = '[UI] Change Title'
 }
 
 export class InitLoading implements Action {
@@ -23,4 +24,16 @@ export class UpdateVersion implements Action {
   readonly type = UiActionTypes.UpdateVersion;
 }
 
-export type UiActions = InitLoading | FinishedLoading | NewVersionAvailable | UpdateVersion;
+export class ChangeTitle implements Action {
+  readonly type = UiActionTypes.ChangeTitle;
+
+  constructor(readonly payload: string) {
+  }
+}
+
+export type UiActions =
+  InitLoading
+  | FinishedLoading
+  | NewVersionAvailable
+  | UpdateVersion
+  | ChangeTitle;

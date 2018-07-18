@@ -1,0 +1,6 @@
+<div class="launch-bar">
+  <div><a routerLink="/"><i class="fa fa-arrow-left"></i></a></div>
+  <div class="launches-counter"> Lanzamientos : <span>{{launchesCount}}</span></div>
+  <span class="separator"></span>
+  <div><button (click)="onClickChangeOrder()">Fecha <i class="fa {{(order=== 'ASC') ?  'fa-sort-amount-up'  : 'fa-sort-amount-down' }}"></i></button></div>
+</div>

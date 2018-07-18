@@ -53,6 +53,7 @@ export class ApiService {
   };
 
   private checkInitialDataLoaded() {
+    console.log(this.entitiesLoaded);
     if (
       this.entitiesLoaded['launches'] &&
       this.entitiesLoaded['agencies'] &&

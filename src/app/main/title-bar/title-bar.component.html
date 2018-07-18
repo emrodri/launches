@@ -1,0 +1,8 @@
+<div class="title-bar">
+  <i class="fa fa-rocket"></i>
+  <span class="title">{{title$ | async}}</span>
+  <span class="separator"></span>
+  <div class="new-version" *ngIf="newVersion$ | async">Existe una nueva versión de la aplicación
+    <button (click)="updateVersion()"><i class="fas fa-sync-alt"></i> Actualizar</button>
+  </div>
+</div>

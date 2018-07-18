@@ -1,6 +1,7 @@
 import {ChangeDetectionStrategy, Component, Input, OnInit} from '@angular/core';
 import {Store} from '@ngrx/store';
 import {State} from '../../store';
+import {Launch} from '../../store/models/launch.model';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -9,7 +10,7 @@ import {State} from '../../store';
   styleUrls: ['./launches-list.component.css']
 })
 export class LaunchesListComponent implements OnInit {
-  @Input('launches') launches;
+  @Input('launches') launches: Launch[];
   statuses = [];
 
   constructor(private store: Store<State>) {

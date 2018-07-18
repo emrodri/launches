@@ -1,9 +1,9 @@
-<app-launches-counter [counter]="launches.length"></app-launches-counter>
 <div class="launches" *ngIf="launches.length>0; else nolaunches">
   <div class="launch" *ngFor="let launch of launches">
-    <div>{{launch.name}}</div>
+    <div class="launch-name"><i class="fa fa-rocket"></i> {{launch.name}}</div>
+    <div class="lauch-time">From {{launch.isostart |date : 'medium'}} to {{launch.isoend | date : 'medium'}}</div>
     <div class="more-info">
-      <div>
+      <div class="mission-type">
         <div class="header">Tipos de mision</div>
         <div *ngIf="launch.missions.length==0">Sin Misiones</div>
         <div *ngFor="let mission of launch.missions">
@@ -19,15 +19,9 @@
           (Rocket) {{agency.name}}
         </div>
       </div>
-      <div>
-        <div class="header">Estado</div>
-        <div>
-          {{getLaunchStatusFromId(launch.status).name}}
-        </div>
-      </div>
     </div>
   </div>
 </div>
 <ng-template #nolaunches>
-  <div class="no-launches">No se han encontrado lanzamientos</div>
+  <div class="no-launches">No se han encontrado lanzamientos en este estado</div>
 </ng-template>

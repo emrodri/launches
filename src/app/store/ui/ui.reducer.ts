@@ -4,11 +4,13 @@ import {UiActions, UiActionTypes} from './ui.actions';
 export interface UiState {
   loading: boolean;
   newVersion: boolean;
+  title: string;
 }
 
 export const initialState: UiState = {
   loading: false,
-  newVersion: false
+  newVersion: false,
+  title: ''
 };
 
 export function reducer(
@@ -23,6 +25,8 @@ export function reducer(
       return {...state, newVersion: true};
     case UiActionTypes.UpdateVersion:
       return state;
+    case UiActionTypes.ChangeTitle:
+      return {...state, title: action.payload};
     default:
       return state;
   }

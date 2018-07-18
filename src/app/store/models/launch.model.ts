@@ -12,6 +12,8 @@ export interface Launch {
   changed: Date;
   rocket: Rocket;
   missions: Mission[];
+  isostart: Date;
+  isoend: Date;
 }
 export const launchesInitialState: Launch[] = [];
 

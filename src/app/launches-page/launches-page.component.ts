@@ -14,7 +14,7 @@ export class LaunchesPageComponent implements OnInit {
   filteredLaunches;
   launches;
   search$ = this.api.search$;
-  newVersion$ = this.store.select('ui').pipe(map(uiState => uiState.newVersion));
+
 
   constructor(private store: Store<State>, private api: ApiService) {
   }
@@ -57,8 +57,6 @@ export class LaunchesPageComponent implements OnInit {
     return checkOnMissions || checkOnRocket;
   }
 
-  updateVersion() {
-    this.store.dispatch(new UpdateVersion());
-  }
+
 
 }

@@ -1,0 +1,43 @@
+.status{
+  display: flex;
+  flex: 1 1 auto;
+  padding: 8px 16px;
+  border-top: 1px solid #ccc;
+  flex-direction: column;
+  cursor: pointer;
+}
+.status:hover{
+  background-color: #f5f5f5;
+}
+
+.color-indicator{
+  height: 1em;
+  width: 1em;
+  border-radius: 50%;
+  display: flex;
+  background-color: #cccccc;
+  margin-right: 8px;
+}
+.warn{
+  background-color: indianred;
+}
+.accent{
+  background-color: forestgreen;
+}
+.status-name{
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+}
+.status-description{
+  font-size: 0.8em;
+}
+
+.separator{
+  flex: 1 1 auto;
+}
+
+.updated{
+  font-size: 0.6em;
+  color: #303f9f;
+}

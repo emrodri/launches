@@ -6,7 +6,7 @@ import {UpdateAvailableEvent} from '@angular/service-worker/src/low_level';
 import {State} from '../store';
 import {Store} from '@ngrx/store';
 import {map} from 'rxjs/operators';
-import {NewVersionAvailable, UiActionTypes} from '../store/ui/ui.actions';
+import {NewVersionAvailable} from '../store/ui/ui.actions';
 
 @Component({
   selector: 'app-main',
@@ -31,5 +31,7 @@ export class MainComponent implements OnInit {
       });
     }
   }
+
+
 
 }

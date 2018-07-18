@@ -1,9 +1,9 @@
-import {Status} from 'tslint/lib/runner';
 import {StatusActions, StatusActionTypes} from './status.actions';
+import {LaunchStatus} from '../models/launch-status.model';
 
 
 export interface StatusesState {
-  statuses: Status[];
+  statuses: LaunchStatus[];
   loading: boolean;
 }
 
