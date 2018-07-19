@@ -27,9 +27,9 @@
     {
       "name": "cache-first",
       "urls":[
-        "http://127.0.0.1:8080/assets/launchagencies.json",
-        "http://127.0.0.1:8080/assets/launchmissions.json",
-        "http://127.0.0.1:8080/assets/launchstatus.json"
+        "/assets/launchagencies.json",
+        "/assets/launchmissions.json",
+        "/assets/launchstatus.json"
       ],
       "cacheConfig":{
         "strategy":"performance",
@@ -40,7 +40,7 @@
     {
       "name": "cache-first",
       "urls":[
-        "http://127.0.0.1:8080/assets/launchlibrary.json"
+        "/assets/launchlibrary.json"
       ],
       "cacheConfig":{
         "strategy":"freshness",
